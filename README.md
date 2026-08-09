@@ -25,12 +25,24 @@
 
 ---
 
+## 🔒 Copyright & Ownership Notice
+
+© **2026 Muviz Watch Platform by Romir Rodrigues**. All Rights Reserved.
+
+- **Founder & Lead Developer**: Romir Rodrigues ([@RomirRodrigues](https://github.com/RomirRodrigues))
+- **Official Repository**: [https://github.com/RomirRodrigues/MUVIZ-WATCH](https://github.com/RomirRodrigues/MUVIZ-WATCH)
+- **Live Platform URL**: [https://RomirRodrigues.github.io/MUVIZ-WATCH/](https://RomirRodrigues.github.io/MUVIZ-WATCH/)
+
+All trademarks, movie assets, logos, and third-party brand names mentioned within this application belong to their respective copyright holders. The custom stereoscopic 3D canvas engine, source code, and conversion architecture are protected under copyright by Romir Rodrigues.
+
+---
+
 ## 🚀 Quick Start
 
 ### 1. Clone & Install Dependencies
 ```bash
-git clone https://github.com/YOUR_USERNAME/muviz-watch.git
-cd muviz-watch
+git clone https://github.com/RomirRodrigues/MUVIZ-WATCH.git
+cd MUVIZ-WATCH
 npm install
 ```
 
@@ -47,11 +59,5 @@ npm run build
 
 ---
 
-## 🌐 1-Click Deployment
-
-This project includes configurations for **Vercel** (`vercel.json`) and **Netlify** (`netlify.toml`).
-
----
-
 ## 📄 License
-MIT License. Free to use and customize.
+MIT License. © 2026 Romir Rodrigues. All Rights Reserved.

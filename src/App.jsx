@@ -11,7 +11,7 @@ import MovieModal from './components/MovieModal';
 import GlassesGuideModal from './components/GlassesGuideModal';
 import WatchlistDrawer from './components/WatchlistDrawer';
 import AdFreeGuaranteeBanner from './components/AdFreeGuaranteeBanner';
-import { ShieldCheck, Film, Glasses, Tv, Globe, Sparkles, Heart } from 'lucide-react';
+import { ShieldCheck, Film, Glasses, Tv, Globe, Sparkles, Heart, Shield } from 'lucide-react';
 
 export default function App() {
   // Filter States
@@ -25,7 +25,7 @@ export default function App() {
   // Modal & Player States
   const [activePlayingMovie, setActivePlayingMovie] = useState(null);
   const [activePlayMode, setActivePlayMode] = useState('movie');
-  const [active3DMode, setActive3DMode] = useState('reald-3d'); // Default to RealD 3D for non-powered glasses
+  const [active3DMode, setActive3DMode] = useState('anaglyph');
   const [activeDetailMovie, setActiveDetailMovie] = useState(null);
   const [showGlassesGuide, setShowGlassesGuide] = useState(false);
   const [showWatchlist, setShowWatchlist] = useState(false);
@@ -124,12 +124,12 @@ export default function App() {
       {/* Main Page Layout */}
       <main className="flex-1 max-w-7xl mx-auto w-full px-4 md:px-8 py-4 space-y-6">
         
-        {/* Universal Passive Polarized 3D Link Converter Studio Bar */}
+        {/* Universal 3D Link Converter Studio Bar */}
         <ConverterHero
           onConvertAndPlay={(movieObj, chosen3DMode) => {
             setActivePlayingMovie(movieObj);
             setActivePlayMode("movie");
-            setActive3DMode(chosen3DMode || "reald-3d");
+            setActive3DMode(chosen3DMode || "anaglyph");
           }}
         />
 
@@ -140,7 +140,7 @@ export default function App() {
             onPlayMovie={(movie, mode) => {
               setActivePlayingMovie(movie);
               setActivePlayMode(mode);
-              setActive3DMode("reald-3d");
+              setActive3DMode("anaglyph");
             }}
             onOpenMovieDetail={(movie) => setActiveDetailMovie(movie)}
             watchlist={watchlist}
@@ -172,7 +172,7 @@ export default function App() {
           onPlayMovie={(movie, mode) => {
             setActivePlayingMovie(movie);
             setActivePlayMode(mode);
-            setActive3DMode("reald-3d");
+            setActive3DMode("anaglyph");
           }}
           onOpenMovieDetail={(movie) => setActiveDetailMovie(movie)}
           watchlist={watchlist}
@@ -188,10 +188,10 @@ export default function App() {
             <div className="flex items-center space-x-2 justify-center md:justify-start">
               <Film className="w-5 h-5 text-cyan-400" />
               <span className="font-extrabold text-white text-base tracking-wider">MUVIZ WATCH</span>
-              <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-cyan-500/20 text-cyan-400">RealD 3D 4K</span>
+              <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-cyan-500/20 text-cyan-400">UNIVERSAL 3D 4K</span>
             </div>
             <p className="max-w-md text-gray-400">
-              Convert any movie or video link into RealD 3D (Non-powered Passive Polarized 3D Glasses) instantly. 100% ad-free 4K Ultra HD streaming.
+              Convert any movie or video link into your choice of 8 stereoscopic 3D glasses formats instantly. 100% ad-free 4K Ultra HD streaming.
             </p>
           </div>
 
@@ -209,10 +209,13 @@ export default function App() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto border-t border-white/5 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-gray-500">
-          <p>© 2026 Muviz Watch Platform. All Rights Reserved.</p>
-          <p className="flex items-center gap-1">
-            Engineered for non-powered RealD 3D Polarized Glasses
+        {/* Copyright Notice */}
+        <div className="max-w-7xl mx-auto border-t border-white/10 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-gray-400">
+          <p className="font-semibold text-gray-300">
+            © 2026 Muviz Watch Platform by <span className="text-cyan-400 font-extrabold">Romir Rodrigues</span>. All Rights Reserved.
+          </p>
+          <p className="flex items-center gap-1 text-gray-400">
+            Designed & Developed by Romir Rodrigues for 4K Ultra HD & Universal 3D Cinema
           </p>
         </div>
       </footer>
@@ -237,7 +240,7 @@ export default function App() {
           onPlayMovie={(movie, mode) => {
             setActivePlayingMovie(movie);
             setActivePlayMode(mode);
-            setActive3DMode("reald-3d");
+            setActive3DMode("anaglyph");
             setActiveDetailMovie(null);
           }}
           watchlist={watchlist}
@@ -262,7 +265,7 @@ export default function App() {
         onPlayMovie={(movie, mode) => {
           setActivePlayingMovie(movie);
           setActivePlayMode(mode);
-          setActive3DMode("reald-3d");
+          setActive3DMode("anaglyph");
         }}
         onRemoveFromWatchlist={(movieId) => {
           setWatchlist(prev => prev.filter(m => m.id !== movieId));
