@@ -1,16 +1,57 @@
-# React + Vite
+# 🎬 Muviz Watch - Universal 4K & Stereoscopic 3D Cinema Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+**Muviz Watch** is a modern, 100% ad-free cinema web platform engineered for high-bitrate **4K Ultra HD** video streaming and **Universal Stereoscopic 3D Rendering** (supporting non-powered RealD 3D glasses, Red/Cyan glasses, 3D TVs, VR, and naked-eye Cross-Eye 3D).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- 🍿 **100% Pure Native HTML5 & WebGL Video Player**: Direct MP4 and embed stream processing with zero ads or third-party wrappers.
+- 🥽 **Universal 3D Format Matrix (8 Selectable 3D Modes)**:
+  1. `🥽 Red / Cyan Anaglyph 3D`: High 3D pop-out on standard PC monitors & laptops.
+  2. `🕶️ RealD 3D Polarized (Interlaced Scanlines)`: Line-by-line scanlines for RealD 3D theater glasses.
+  3. `🟣 Green / Magenta 3D`: Alternative color anaglyph format.
+  4. `🟡 Amber / Blue 3D`: ColorCode 3D format.
+  5. `📺 Side-by-Side (SBS 3D)`: For 3D TVs, VR Headsets & Google Cardboard.
+  6. `📽️ Top-Bottom (Over-Under 3D)`: For 3D Projectors & 3D TVs.
+  7. `👀 Cross-Eye 3D (No Glasses Needed!)`: Naked-eye 3D viewing.
+  8. `✨ Standard 2D HD`: Flat high-definition viewing.
+- 🔗 **Smart Video Link Converter**: Paste any YouTube link, direct MP4 URL, or video stream link to convert it live into your selected 3D format.
+- 🎛️ **Live 3D Focal Depth Separation Slider**: Adjust stereoscopic pop-out distance in real-time (`0px` to `30px`).
+- 🎬 **60 FPS Live 3D Motion Calibration Test Screen**: Interactive 3D calibration target scene inside the setup guide.
+- 🌍 **Global Movie Catalog**: Curated films across Hollywood, Bollywood, Anime (Japan), K-Drama (Korea), European, and 3D Cinema.
+- 🔊 **Multi-Language Audio & Synced Subtitles**: English, Spanish, Hindi, Japanese, Korean, French, German, and more.
+- 📱 **Responsive & Glassmorphism UI**: Built with React, Vite, TailwindCSS v4, Lucide Icons, and Canvas Confetti.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+## 🚀 Quick Start
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### 1. Clone & Install Dependencies
+```bash
+git clone https://github.com/YOUR_USERNAME/muviz-watch.git
+cd muviz-watch
+npm install
+```
+
+### 2. Run Local Development Server
+```bash
+npm run dev
+```
+Open `http://localhost:5173/` in your browser.
+
+### 3. Build for Production
+```bash
+npm run build
+```
+
+---
+
+## 🌐 1-Click Deployment
+
+This project includes configurations for **Vercel** (`vercel.json`) and **Netlify** (`netlify.toml`).
+
+---
+
+## 📄 License
+MIT License. Free to use and customize.
