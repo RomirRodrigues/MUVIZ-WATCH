@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Glasses, Sparkles, Play, Link, ShieldCheck, Zap, Monitor, Cpu } from 'lucide-react';
+import { Glasses, Sparkles, Play, Link, ShieldCheck, Zap, Monitor, Cpu, ArrowRight } from 'lucide-react';
 
 export function parseSmartStreamUrl(url) {
   if (!url) return { streamUrl: '', isDirectVideo: true };
@@ -78,16 +78,21 @@ export default function ConverterHero({ onConvertAndPlay }) {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-2xl glass-panel border-2 border-cyan-500/40 p-6 md:p-10 my-6 shadow-2xl bg-gradient-to-r from-cyan-950/60 via-purple-950/40 to-black">
+    <div className="relative overflow-hidden rounded-3xl glass-panel animated-gradient-border p-6 md:p-10 my-6 shadow-2xl bg-gradient-to-r from-cyan-950/70 via-black/80 to-purple-950/70">
+      
+      {/* Motion Ambient Glow Backdrop */}
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-purple-500/15 rounded-full blur-3xl pointer-events-none" />
+
       <div className="relative z-10 max-w-4xl mx-auto space-y-6 text-center">
         
-        {/* Badge */}
-        <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full glow-3d-red-cyan text-white text-xs font-black shadow-lg">
+        {/* Animated Pill Badge */}
+        <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full glow-3d-red-cyan text-white text-xs font-black shadow-lg hover:scale-105 transition-transform cursor-pointer">
           <Glasses className="w-4 h-4 text-cyan-300 animate-pulse" />
           <span>UNIVERSAL 3D FORMAT CONVERTER STUDIO (CHOOSE ANY GLASSES FORMAT)</span>
         </div>
 
-        {/* Title */}
+        {/* Hero Title */}
         <div className="space-y-2">
           <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
             Convert <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 text-glow-cyan">ANY Video Link</span> into 3D
@@ -97,19 +102,19 @@ export default function ConverterHero({ onConvertAndPlay }) {
           </p>
         </div>
 
-        {/* Converter Form */}
-        <form onSubmit={handleSubmit} className="glass-panel p-3 rounded-2xl border border-white/20 shadow-2xl space-y-3">
+        {/* 21st.dev Style Form Container */}
+        <form onSubmit={handleSubmit} className="glass-panel p-4 md:p-5 rounded-2xl border border-white/15 shadow-2xl space-y-4 text-left">
           
-          <div className="flex flex-col sm:flex-row gap-2">
+          <div className="flex flex-col sm:flex-row gap-3">
             <div className="relative flex-1">
-              <Link className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-cyan-400" />
+              <Link className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-cyan-400" />
               <input
                 type="url"
                 required
                 value={inputUrl}
                 onChange={(e) => setInputUrl(e.target.value)}
                 placeholder="Paste any YouTube video link, MP4 link, or movie stream URL..."
-                className="w-full bg-black/60 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all font-mono"
+                className="w-full bg-black/60 border border-white/10 rounded-xl pl-11 pr-4 py-3.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all font-mono shadow-inner"
               />
             </div>
 
@@ -118,18 +123,21 @@ export default function ConverterHero({ onConvertAndPlay }) {
               value={videoTitle}
               onChange={(e) => setVideoTitle(e.target.value)}
               placeholder="Movie Title (Optional)"
-              className="sm:w-48 bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-all"
+              className="sm:w-56 bg-black/60 border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-all"
             />
           </div>
 
-          {/* 3D Glasses Format Choice Pills */}
-          <div className="space-y-2 pt-2 border-t border-white/10 text-xs text-left">
-            <div className="flex items-center space-x-2 text-gray-200 font-bold">
-              <Glasses className="w-4 h-4 text-cyan-400" />
-              <span>Choose Your Exact 3D Format Choice:</span>
+          {/* 3D Format Choice Pills */}
+          <div className="space-y-2 pt-3 border-t border-white/10">
+            <div className="flex items-center justify-between text-xs">
+              <span className="text-gray-200 font-extrabold flex items-center gap-1.5">
+                <Glasses className="w-4 h-4 text-cyan-400" />
+                Select 3D Format Choice for Your Glasses:
+              </span>
+              <span className="text-[11px] text-cyan-400 font-mono font-bold">7 Modes Available</span>
             </div>
 
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-2">
               {[
                 { id: 'anaglyph', label: '🥽 Red / Cyan Anaglyph (PC Screens)' },
                 { id: 'reald-interlaced', label: '🕶️ RealD 3D Polarized (Interlaced)' },
@@ -143,9 +151,9 @@ export default function ConverterHero({ onConvertAndPlay }) {
                   type="button"
                   key={m.id}
                   onClick={() => setMode3D(m.id)}
-                  className={`px-3 py-1.5 rounded-xl font-bold transition-all text-xs ${
+                  className={`px-3 py-2 rounded-xl font-bold transition-all text-xs flex items-center gap-1.5 ${
                     mode3D === m.id
-                      ? 'glow-3d-red-cyan text-white shadow-lg scale-105'
+                      ? 'glow-3d-red-cyan text-white shadow-lg scale-105 border-cyan-400'
                       : 'bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10'
                   }`}
                 >
@@ -155,28 +163,29 @@ export default function ConverterHero({ onConvertAndPlay }) {
             </div>
           </div>
 
-          {/* Convert & Stream CTA */}
+          {/* Convert & Stream CTA Button */}
           <button
             type="submit"
-            className="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white font-extrabold text-sm flex items-center justify-center gap-2 hover:scale-[1.01] transition-transform shadow-xl shadow-cyan-500/25"
+            className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white font-black text-sm flex items-center justify-center gap-2.5 hover:scale-[1.01] transition-transform shadow-xl shadow-cyan-500/25 cursor-pointer"
           >
             <Play className="w-5 h-5 fill-current" />
-            Convert Video to Selected 3D Format & Stream Now
+            <span>Convert Video to Selected 3D Format & Stream Now</span>
+            <ArrowRight className="w-4 h-4 ml-1" />
           </button>
         </form>
 
-        {/* Technical Specs Footer */}
-        <div className="flex flex-wrap items-center justify-center gap-4 text-[11px] text-gray-400">
-          <span className="flex items-center gap-1 text-cyan-300">
-            <Cpu className="w-3.5 h-3.5" /> 7 Stereoscopic 3D Format Choices Built-In
+        {/* Feature Highlights */}
+        <div className="flex flex-wrap items-center justify-center gap-4 text-[11px] text-gray-400 pt-1">
+          <span className="flex items-center gap-1 text-cyan-300 font-medium">
+            <Cpu className="w-3.5 h-3.5" /> Hardware Accelerated 60 FPS 3D Engine
           </span>
           <span>•</span>
-          <span className="flex items-center gap-1 text-amber-300">
-            <ShieldCheck className="w-3.5 h-3.5" /> Naked-Eye Cross-Eye 3D Supported (No Glasses Needed!)
+          <span className="flex items-center gap-1 text-amber-300 font-medium">
+            <ShieldCheck className="w-3.5 h-3.5" /> Naked-Eye Cross-Eye 3D Supported
           </span>
           <span>•</span>
-          <span className="flex items-center gap-1 text-purple-300">
-            <Monitor className="w-3.5 h-3.5" /> 4K Ultra HD Resolution Retained
+          <span className="flex items-center gap-1 text-purple-300 font-medium">
+            <Monitor className="w-3.5 h-3.5" /> 4K Ultra HD Stream Retained
           </span>
         </div>
 
