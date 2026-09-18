@@ -11,9 +11,13 @@ import MovieModal from './components/MovieModal';
 import GlassesGuideModal from './components/GlassesGuideModal';
 import WatchlistDrawer from './components/WatchlistDrawer';
 import AdFreeGuaranteeBanner from './components/AdFreeGuaranteeBanner';
+import WelcomeIntro from './components/WelcomeIntro';
 import { ShieldCheck, Film, Glasses, Tv, Globe, Sparkles, Heart, Shield } from 'lucide-react';
 
 export default function App() {
+  // Welcome Intro State
+  const [showWelcome, setShowWelcome] = useState(true);
+
   // Filter States
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedPlatform, setSelectedPlatform] = useState('all');
@@ -108,6 +112,11 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-[#07080b] text-gray-100 font-sans selection:bg-cyan-500 selection:text-black">
       
+      {/* Welcome Intro Animation Screen */}
+      {showWelcome && (
+        <WelcomeIntro onComplete={() => setShowWelcome(false)} />
+      )}
+
       {/* Global Navigation Header */}
       <Navbar
         searchQuery={searchQuery}
